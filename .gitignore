@@ -1,0 +1,45 @@
+# Astro build & cache
+dist/
+.astro/
+node_modules/
+
+# Environment, logs & database
+.env
+.env.*
+*.log
+error_log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.sql
+*.tar.gz
+*.zip
+
+# Legacy WordPress core & admin in root
+/wp-admin/
+/wp-content/
+/wp-includes/
+/staging/
+/cgi-bin/
+/css/
+/fonts/
+/js/
+*.php
+.ftpquota
+.htaccess*
+license.txt
+readme.html
+
+# Uploads cache, logs & php artifacts
+public/wp-content/uploads/*-logs/
+public/wp-content/uploads/wc-logs/
+public/wp-content/uploads/wpforms/
+public/wp-content/uploads/wpo/
+public/wp-content/uploads/**/.htaccess
+public/wp-content/uploads/**/index.php
+public/wp-content/uploads/**/index.html
+public/wp-content/uploads/**/*.xml
+
+# OS files
+.DS_Store
+Thumbs.db

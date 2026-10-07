@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import projects from '../../data/projects.json';
+import site from '../../data/site.json';
+
+// Unique categories
+const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
+---
+
+<Layout
+  title={`Participated Projects | ${site.name}`}
+  description="Explore our participated megaprojects in Qatar including Qatar Petroleum District, Doha Metro, Msheireb Downtown, Lusail City, and Salwa Beach Resort."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="hero-tag">Engineering Portfolio</span>
+      <h1 class="page-hero-title">Participated Projects</h1>
+      <p class="page-hero-desc">
+        A distinguished showcase of landmark civil, marine, hospitality, retail, and energy infrastructure projects delivered across Qatar.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-section bg-light">
+    <div class="container">
+      <!-- Filter Bar -->
+      <div class="filter-bar" id="filter-bar">
+        {categories.map((cat, idx) => (
+          <button
+            class={`filter-btn ${idx === 0 ? 'active' : ''}`}
+            data-filter={cat === 'All' ? 'all' : cat}
+          >
+            {cat} {cat === 'All' ? `(${projects.length})` : `(${projects.filter(p => p.category === cat).length})`}
+          </button>
+        ))}
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid-3" id="projects-grid">
+        {projects.map((p) => (
+          <div class="project-grid-item" data-category={p.category}>
+            <ProjectCard
+              title={p.title}
+              slug={p.slug}
+              category={p.category}
+              summary={p.summary}
+              image={p.image}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #07192e 0%, #0d2847 60%, #164273 100%);
+    color: #ffffff;
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(217, 147, 27, 0.15);
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+  }
+
+  .page-hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .page-hero-title {
+      font-size: 3.25rem;
+    }
+  }
+
+  .page-hero-desc {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .bg-light {
+    background: #f8fafc;
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1.25rem;
+    background: #ffffff;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(217, 147, 27, 0.3);
+  }
+
+  .project-grid-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .project-grid-item.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.project-grid-item');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (filter === 'all' || itemCat === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

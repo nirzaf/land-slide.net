@@ -1,0 +1,26 @@
+{
+  "name": "LandSlide Trading and Contracting",
+  "shortName": "LandSlide",
+  "tagline": "Building Excellence, Shaping Futures",
+  "description": "Pioneering Construction Excellence: From Civil Works to Marine Projects, LandSlide provides expert consultancy to construction companies across Qatar and internationally.",
+  "founded": 2018,
+  "contact": {
+    "phone": "+974 44643658",
+    "email": "info@land-slide.net",
+    "address": "Doha, Qatar",
+    "hours": "Sunday – Thursday: 8:00 AM – 5:00 PM"
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About Us", "href": "/about" },
+    { "label": "Projects", "href": "/projects" },
+    { "label": "Careers", "href": "/careers" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "categories": [
+    "Construction",
+    "Marine & Infrastructure",
+    "Oil & Gas",
+    "Marine & Hospitality"
+  ]
+}

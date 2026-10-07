@@ -1,0 +1,129 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  category: string;
+  summary: string;
+  image: string;
+}
+
+const { title, slug, category, summary, image } = Astro.props;
+
+// Determine badge class
+let badgeClass = 'badge-construction';
+if (category.toLowerCase().includes('marine')) badgeClass = 'badge-marine';
+if (category.toLowerCase().includes('oil')) badgeClass = 'badge-oil';
+---
+
+<article class="project-card">
+  <a href={`/projects/${slug}`} class="project-card-image-wrap" tabindex="-1" aria-hidden="true">
+    <img src={image} alt={title} class="project-card-image" loading="lazy" />
+    <span class={`badge ${badgeClass} project-category-badge`}>{category}</span>
+  </a>
+  <div class="project-card-body">
+    <h3 class="project-card-title">
+      <a href={`/projects/${slug}`}>{title}</a>
+    </h3>
+    <p class="project-card-summary">{summary}</p>
+    <div class="project-card-footer">
+      <a href={`/projects/${slug}`} class="project-card-link">
+        <span>Explore Case Study</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(217, 147, 27, 0.4);
+  }
+
+  .project-card-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    background: #0f172a;
+    display: block;
+  }
+
+  .project-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-card:hover .project-card-image {
+    transform: scale(1.06);
+  }
+
+  .project-category-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  .project-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .project-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .project-card-title a:hover {
+    color: var(--accent);
+  }
+
+  .project-card-summary {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  .project-card-footer {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .project-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .project-card-link:hover {
+    color: var(--accent-hover);
+    gap: 0.65rem;
+  }
+</style>

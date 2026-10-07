@@ -1,0 +1,279 @@
+---
+import site from '../data/site.json';
+---
+
+<footer class="site-footer">
+  <div class="footer-cta">
+    <div class="container footer-cta-inner">
+      <div class="footer-cta-text">
+        <h3>Ready to Build Your Next Vision with Precision?</h3>
+        <p>Partner with LandSlide Trading and Contracting for world-class consultancy and construction management in Qatar.</p>
+      </div>
+      <div class="footer-cta-btn">
+        <a href="/contact" class="btn btn-primary">Get in Touch Today</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-main">
+    <div class="container footer-grid">
+      <!-- Brand Column -->
+      <div class="footer-col brand-col">
+        <img src="/logo.png" alt="LandSlide Trading and Contracting" class="footer-logo" />
+        <p class="brand-desc">
+          Building Excellence, Shaping Futures. Your reliable partner for expert guidance and innovative contracting solutions in Qatar since {site.founded}.
+        </p>
+        <div class="brand-badges">
+          <span class="cert-pill">Civil Works</span>
+          <span class="cert-pill">Marine Projects</span>
+          <span class="cert-pill">Oil & Gas</span>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4 class="col-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/projects">Participated Projects</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Key Projects -->
+      <div class="footer-col">
+        <h4 class="col-title">Featured Projects</h4>
+        <ul class="footer-links">
+          <li><a href="/projects/qatar-petroleum-district">Qatar Petroleum District</a></li>
+          <li><a href="/projects/doha-metro">Doha Metro</a></li>
+          <li><a href="/projects/msheireb-projects">Msheireb Downtown Doha</a></li>
+          <li><a href="/projects/salwa-beach-resort">Salwa Beach Resort</a></li>
+          <li><a href="/projects/lusail-projects">Lusail City Development</a></li>
+          <li><a href="/projects/project-vendome-mall">Vendome Mall</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col">
+        <h4 class="col-title">Contact Us</h4>
+        <div class="footer-contact-info">
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>{site.contact.address}</span>
+          </div>
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <a href={`tel:${site.contact.phone}`}>{site.contact.phone}</a>
+          </div>
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+          </div>
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>{site.contact.hours}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; {new Date().getFullYear()} {site.name}. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="/about">About</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--primary-dark);
+    color: #e2e8f0;
+    margin-top: auto;
+  }
+
+  .footer-cta {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3.5rem 0;
+  }
+
+  .footer-cta-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 768px) {
+    .footer-cta-inner {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .footer-cta-text h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-cta-text p {
+    color: #cbd5e1;
+    font-size: 1rem;
+    max-width: 650px;
+  }
+
+  .footer-main {
+    padding: 4.5rem 0 3rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
+    }
+  }
+
+  .footer-logo {
+    height: 48px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    margin-bottom: 1.25rem;
+  }
+
+  .brand-desc {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .brand-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .cert-pill {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--accent);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(217, 147, 27, 0.25);
+  }
+
+  .col-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .col-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .footer-links a {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    transition: var(--transition);
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+    padding-left: 4px;
+  }
+
+  .footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    color: #94a3b8;
+    font-size: 0.9rem;
+  }
+
+  .contact-item svg {
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .contact-item a:hover {
+    color: var(--accent);
+  }
+
+  .footer-bottom {
+    background: #040e1a;
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 640px) {
+    .footer-bottom-inner {
+      flex-direction: row;
+    }
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom-links a:hover {
+    color: var(--accent);
+  }
+</style>
