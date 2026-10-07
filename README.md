@@ -236,21 +236,23 @@ Whenever you push code to GitHub, your FTP website updates automatically with ze
 
 ---
 
-### Option 4: Including the Pre-built Static Site in the Repository
+### Option 4: Pre-built Static Site Included in the Repository (`dist/`)
 
-If you want the repository itself to contain the compiled static site ready for direct download or Git-based cPanel deployment:
+The repository includes the compiled static site ready for immediate publishing:
 
-1. By default, `dist/` is listed in `.gitignore` (standard practice in modern web development to prevent committing generated code).
-2. If your workflow requires the compiled site inside Git:
-   - Open [`.gitignore`](.gitignore) and remove the line `dist/`.
-   - Run:
+1. **Direct FTP Deployment without Node.js:**
+   - The compiled static site is saved in the [`dist/`](dist/) folder in this repository.
+   - It includes all compiled HTML files, optimized WebP images, CSS/JS bundles, and a production-ready [`.htaccess`](dist/.htaccess).
+   - You can download or clone this repository and immediately upload the contents of `dist/` to your `/public_html/` folder using FTP—no Node.js build step needed.
+
+2. **Rebuilding the Static Site:**
+   - Whenever you edit content or templates in `src/`, rebuild and commit:
      ```bash
      npm run build
      git add dist/
-     git commit -m "Include compiled static site build in dist/"
+     git commit -m "Update static site build"
      git push origin main
      ```
-   - You can then deploy directly from the `dist/` folder via cPanel Git Version Control or pull it on your server.
 
 ---
 

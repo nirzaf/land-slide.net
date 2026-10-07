@@ -1,5 +1,5 @@
 # Astro build & cache
-dist/
+# dist/ is tracked for direct FTP publishing
 .astro/
 node_modules/
 archive/
@@ -27,7 +27,6 @@ pnpm-debug.log*
 /js/
 *.php
 .ftpquota
-.htaccess*
 license.txt
 readme.html
 
